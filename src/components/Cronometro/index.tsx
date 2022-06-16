@@ -11,7 +11,7 @@ interface Props {
 export default function Cronometro({ selecionado }: Props) {
 
     const [tempo, setTempo] =
-        useState<Number>();
+        useState<number>();
     useEffect(() => {
         if(selecionado?.tempo){
             setTempo(tempoParaSegundos(selecionado.tempo))}
@@ -20,9 +20,8 @@ export default function Cronometro({ selecionado }: Props) {
     return (
         <div className={style.cronometro}>
             <p className={style.titulo}>Escolha um e inicie o Cronômetro</p>
-            Tempo:{tempo}
             <div className={style.relogioWrapper}>
-                <Relogio />
+                <Relogio tempo={tempo} />
             </div>
             <Botao>Começar</Botao>
         </div>
